@@ -38,4 +38,4 @@ To use Eval in Browser:
 MIT-licensed -- see `main.js` for details.
 
 ### Compatibility
-Requires Brackets Sprint 21 or newer. Not compatible with Adobe Edge Code yet.
+Brackets Sprint 14 or newer (or any version of Adobe Edge Code).

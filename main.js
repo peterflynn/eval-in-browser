@@ -163,7 +163,7 @@ define(function (require, exports, module) {
                     str += result[i];
                 }
                 if (i < result.length) {
-                    str += "..." + (result.length - i) + " more";
+                    str += ", ..." + (result.length - i) + " more";
                 }
                 return "$[" + str + "]";
             } else {
@@ -174,11 +174,13 @@ define(function (require, exports, module) {
                     str += keys[i] + ":" + result[keys[i]];
                 }
                 if (i < keys.length) {
-                    str += "..." + (keys.length - i) + " more";
+                    str += ", ..." + (keys.length - i) + " more";
                 }
                 return "${" + str + "}";
             }
-            // TODO: special formatting for DOM nodes
+            // TODO: better formatting for DOM nodes
+            // TODO: better formatting for Date objects
+            // TODO: better formatting for RegExp objects
         case "function":
             return "$$[function]";
         }
@@ -248,10 +250,14 @@ define(function (require, exports, module) {
         if (LiveDevelopment.status === LiveDevelopment.STATUS_ACTIVE || LiveDevelopment.status === LiveDevelopment.STATUS_OUT_OF_SYNC) {
             var editor = EditorManager.getFocusedEditor();
             if (editor) {
-                var lang = editor.getLanguageForSelection();
-                if (lang.getId() === "javascript") {
+                var mode = editor.getModeForSelection();
+                if (mode === "javascript") {
                     doEval(editor.getSelectedText(), editor);
                 }
+//                var lang = editor.getLanguageForSelection();  // TODO: re-enable once Sprint 20 / Edge Code P3 are enough in the past
+//                if (lang.getId() === "javascript") {
+//                    doEval(editor.getSelectedText(), editor);
+//                }
             }
         }
     }
