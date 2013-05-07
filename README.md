@@ -4,7 +4,7 @@ Eval in Browser lets you run arbitrary snippets of JS code in your browser with 
 
 1. Launch 'Live Preview' to open your page in Chrome
 2. Select some JS code
-3. Press Ctrl+J
+3. Press Ctrl+Shift+J
 
 The code is evaluated as if you'd just typed it into the Developer Tools console. This is often _not the same result_ as if you
 save the code and refresh your web page. For example:
@@ -22,16 +22,16 @@ save the code and refresh your web page. For example:
 But when used judiciously, this is a great way to quickly debug or tweak the state of your page without doing a full refresh and
 losing the page's current state.
 
-What is Brackets?
-=================
+
+How to Install
+==============
 Eval in Browser is an extension for [Brackets](https://github.com/adobe/brackets/), a new open-source code editor for the web.
 
 To use Eval in Browser:
 
-1. [Download the ZIP](https://github.com/peterflynn/eval-in-browser/archive/master.zip) and unzip it; or clone this repo
-2. Open your extensions folder: _Help > Show Extensions Folder_
-3. Place the folder so the structure is: `extensions/user/eval-in-browser/main.js`
-4. Restart Brackets!
+1. Choose _File > Install Extension_
+2. Enter this URL: _https://github.com/peterflynn/eval-in-browser_
+3. Click _Install_!
 
 
 ### License

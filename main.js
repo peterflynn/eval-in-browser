@@ -65,7 +65,7 @@ define(function (require, exports, module) {
         $toast.empty().append(html);
         
         // Show the element
-        $toast.stop(true, true); // if already animating away, ff to end of anim so we can re-show
+        $toast.stop(true, true); // if already animating away, ff to end of anim so we can re-show next time
         $toast.show();
         
         // Position toast below code you ran
@@ -90,6 +90,17 @@ define(function (require, exports, module) {
         hideToast = setTimeout(function () {
             $toast.fadeOut();
         }, 2000);
+    }
+    function hidePopupImmediately() {
+        $toast.stop(true, true); // if already animating away, stop anim now
+        $toast.hide();
+    }
+    function hidePopupOnScroll(event) {
+        if ($toast) {
+            if (event.target.className === "CodeMirror-scroll") {
+                hidePopupImmediately();
+            }
+        }
     }
     
     function presentResult(result, editor) {
@@ -267,5 +278,8 @@ define(function (require, exports, module) {
     CommandManager.register("Evaluate JS in Browser", CMD_EVAL, handleEval);
     
     var menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
-    menu.addMenuItem(CMD_EVAL, "Ctrl-J", Menus.LAST_IN_SECTION, Menus.MenuSection.FILE_LIVE);
+    menu.addMenuItem(CMD_EVAL, "Ctrl-Shift-J", Menus.LAST_IN_SECTION, Menus.MenuSection.FILE_LIVE);
+    
+    // Popup toast management
+    $("#editor-holder")[0].addEventListener("scroll", hidePopupOnScroll, true);
 });

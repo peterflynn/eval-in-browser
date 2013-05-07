@@ -1,0 +1,7 @@
+{
+    "name": "pflynn.eval-in-browser",
+    "title": "Eval in Browser",
+    "version": "1.0.0",
+    "engines": { "brackets": ">=0.14" },
+    "description": "Run arbitrary snippets of JS code in your browser with one keystroke: while in Live Preview, just select some code and press Ctrl+J (Cmd+J on Mac)."
+}
