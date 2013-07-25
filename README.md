@@ -1,6 +1,6 @@
 "Eval in Browser" for Brackets
 ==============================
-Eval in Browser lets you run arbitrary snippets of JS code in your browser with one keystroke:
+Run arbitrary snippets of JS code in your browser with one keystroke:
 
 1. Launch 'Live Preview' to open your page in Chrome
 2. Select some JS code
@@ -9,9 +9,10 @@ Eval in Browser lets you run arbitrary snippets of JS code in your browser with 
 The code is evaluated as if you'd just typed it into the Developer Tools console. This is often _not the same result_ as if you
 save the code and refresh your web page. For example:
 
-* Doesn't update the body of existing functions. E.g. running Eval in Browser after editing a method body will not change what
+* Doesn't update the body of existing functions. E.g. running Eval in Browser on an edited method body will not change what
   happens next time the method is called; it's the same as copy-pasting the method body into the console. However, you can
-  overwrite an entire function in the global namespace, and you can write code to explicitly remove & replace event listeners.
+  overwrite an entire function in the global namespace, and you can eval extra code to explicitly remove & replace event listeners
+  that were using the original copy of the function.
 * Doesn't change the result of code that's already been run. E.g. changing a global variable that's read by a constructor doesn't
   affect any existing instances of that object. However, re-executing a protype assignment (e.g. `MyClass.prototype.foo = 42;`)
   works well.
@@ -27,10 +28,10 @@ How to Install
 ==============
 Eval in Browser is an extension for [Brackets](https://github.com/adobe/brackets/), a new open-source code editor for the web.
 
-To use Eval in Browser:
+To install extensions:
 
-1. Choose _File > Install Extension_
-2. Enter this URL: _https://github.com/peterflynn/eval-in-browser_
+1. Choose _File > Extension Manager_ and select the _Available_ tab
+2. Search for this extension
 3. Click _Install_!
 
 
