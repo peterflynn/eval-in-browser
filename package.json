@@ -3,7 +3,7 @@
     "title": "Eval in Browser",
     "homepage": "https://github.com/peterflynn/eval-in-browser",
     "author": "Peter Flynn",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "engines": { "brackets": ">=0.14" },
-    "description": "Run arbitrary snippets of JS code in your browser with one keystroke: while in Live Preview, just select some code and press Ctrl+J (Cmd+J on Mac)."
+    "description": "Run arbitrary snippets of JS code in your browser with one keystroke: while in Live Preview, just select some code and press Ctrl+Shift+J (Cmd+Shift+J on Mac)."
 }
