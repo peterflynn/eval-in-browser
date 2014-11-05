@@ -28,10 +28,10 @@ define(function (require, exports, module) {
     "use strict";
     
     // Brackets modules
-    var CommandManager      = brackets.getModule("command/CommandManager"),
+    var _                   = brackets.getModule("thirdparty/lodash"),
+        CommandManager      = brackets.getModule("command/CommandManager"),
         Commands            = brackets.getModule("command/Commands"),
         Menus               = brackets.getModule("command/Menus"),
-        StringUtils         = brackets.getModule("utils/StringUtils"),
         EditorManager       = brackets.getModule("editor/EditorManager"),
         LiveDevelopment     = brackets.getModule("LiveDevelopment/LiveDevelopment"),
         Inspector           = brackets.getModule("LiveDevelopment/Inspector/Inspector");
@@ -108,7 +108,7 @@ define(function (require, exports, module) {
         function format(offset) {
             var substr = result.substr(offset);
             var codeFontCSS = "line-height: 15px; font-size: 12px; font-family: SourceCodePro";
-            return "<span style='" + codeFontCSS + "'>" + StringUtils.htmlEscape(substr) + "</span>";
+            return "<span style='" + codeFontCSS + "'>" + _.escape(substr) + "</span>";
         }
         
         if (result === "$$undefined") {
@@ -261,14 +261,10 @@ define(function (require, exports, module) {
         if (LiveDevelopment.status === LiveDevelopment.STATUS_ACTIVE || LiveDevelopment.status === LiveDevelopment.STATUS_OUT_OF_SYNC) {
             var editor = EditorManager.getFocusedEditor();
             if (editor) {
-                var mode = editor.getModeForSelection();
-                if (mode === "javascript") {
+                var lang = editor.getLanguageForSelection();
+                if (lang.getId() === "javascript") {
                     doEval(editor.getSelectedText(), editor);
                 }
-//                var lang = editor.getLanguageForSelection();  // TODO: re-enable once Sprint 20 / Edge Code P3 are enough in the past
-//                if (lang.getId() === "javascript") {
-//                    doEval(editor.getSelectedText(), editor);
-//                }
             }
         }
     }
